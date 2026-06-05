@@ -18,7 +18,7 @@ const contactItems = [
   {
     icon: Linkedin,
     label: 'LinkedIn',
-    value: 'linkedin.com/in/akaverma007',
+    value: 'https://www.linkedin.com/in/akarshit-verma-ab320b150/',
     href: resumeData.linkedin,
     color: 'from-blue-600 to-sky-600',
     glow: 'rgba(59,130,246,0.3)',
