@@ -100,12 +100,12 @@ export default function Navbar() {
           </ul>
 
           <div className="hidden md:flex items-center gap-3">
-            <a
-              href="mailto:akaverma007@gmail.com"
+            <button
+              onClick={() => { window.location.href = 'mailto:akaverma007@gmail.com'; }}
               className="px-5 py-2 text-sm font-semibold rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 text-white hover:shadow-glow-purple transition-all duration-300 hover:-translate-y-0.5"
             >
               Hire Me
-            </a>
+            </button>
           </div>
 
           <button
@@ -139,12 +139,12 @@ export default function Navbar() {
                 </li>
               ))}
               <li className="pt-2">
-                <a
-                  href="mailto:akaverma007@gmail.com"
-                  className="block text-center px-4 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 text-white text-sm font-semibold"
+                <button
+                  onClick={() => { window.location.href = 'mailto:akaverma007@gmail.com'; }}
+                  className="w-full text-center px-4 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 text-white text-sm font-semibold"
                 >
                   Hire Me
-                </a>
+                </button>
               </li>
             </ul>
           </motion.div>

@@ -80,38 +80,41 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto">
           <div className="grid sm:grid-cols-2 gap-4">
             {contactItems.map(({ icon: Icon, label, value, href, color, glow, desc }, i) => (
-              <motion.a
+              <motion.div
                 key={label}
-                href={href}
-                target={label !== 'Phone' && label !== 'Email' ? '_blank' : undefined}
-                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ y: -6, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="group glass glass-hover rounded-2xl p-6 flex items-center gap-5 relative overflow-hidden"
               >
-                <div
-                  className={`flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-110`}
-                  style={{ boxShadow: `0 0 24px ${glow}` }}
+                <a
+                  href={href}
+                  target={label !== 'Phone' && label !== 'Email' ? '_blank' : '_self'}
+                  rel="noopener noreferrer"
+                  className="group glass glass-hover rounded-2xl p-6 flex items-center gap-5 relative overflow-hidden"
                 >
-                  <Icon size={22} className="text-white" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-1.5 mb-0.5">
-                    <p className="text-slate-400 text-xs uppercase tracking-wider font-semibold">
-                      {label}
-                    </p>
-                    <ExternalLink
-                      size={10}
-                      className="text-slate-600 group-hover:text-slate-400 transition-colors"
-                    />
+                  <div
+                    className={`flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-110`}
+                    style={{ boxShadow: `0 0 24px ${glow}` }}
+                  >
+                    <Icon size={22} className="text-white" />
                   </div>
-                  <p className="text-white font-semibold text-sm truncate">{value}</p>
-                  <p className="text-slate-600 text-xs mt-0.5">{desc}</p>
-                </div>
-              </motion.a>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-1.5 mb-0.5">
+                      <p className="text-slate-400 text-xs uppercase tracking-wider font-semibold">
+                        {label}
+                      </p>
+                      <ExternalLink
+                        size={10}
+                        className="text-slate-600 group-hover:text-slate-400 transition-colors"
+                      />
+                    </div>
+                    <p className="text-white font-semibold text-sm truncate">{value}</p>
+                    <p className="text-slate-600 text-xs mt-0.5">{desc}</p>
+                  </div>
+                </a>
+              </motion.div>
             ))}
           </div>
 
