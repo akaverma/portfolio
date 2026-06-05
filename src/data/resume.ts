@@ -4,7 +4,7 @@ export const resumeData = {
   email: 'akaverma007@gmail.com',
   phone: '+91 9473650148',
   location: 'Gurgaon, India',
-  linkedin: 'https://linkedin.com/in/akaverma007',
+  linkedin: 'https://www.linkedin.com/in/akarshit-verma-ab320b150/',
   github: 'https://github.com/akaverma',
 
   summary:
