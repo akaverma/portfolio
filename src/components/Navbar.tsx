@@ -18,23 +18,23 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
-        });
-      },
-      { threshold: 0.4 }
-    );
-
-    document.querySelectorAll('section[id]').forEach((sec) => observer.observe(sec));
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      observer.disconnect();
+      const sections = document.querySelectorAll('section[id]');
+      let current = '';
+      sections.forEach((section) => {
+        const top = (section as HTMLElement).offsetTop;
+        if (window.scrollY >= top - 120) {
+          current = section.id;
+        }
+      });
+      setActiveSection(current);
     };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
